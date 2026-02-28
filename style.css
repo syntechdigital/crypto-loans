@@ -1,0 +1,280 @@
+/* General page styling */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Loan box container */
+.loan-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 25px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Headings */
+.loan-box h2 {
+  color: #2c3e50;
+  margin-bottom: 6px;
+  font-size: 22px;
+}
+
+.loan-box p.subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Labels and values */
+.loan-box label {
+  display: block;
+  font-weight: 600;
+  margin: 12px 0 6px;
+  color: #444;
+}
+
+.loan-box span {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Slider styling */
+.slider {
+  width: 100%;
+  margin: 10px 0 20px;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #27ae60, #2ecc71);
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #27ae60;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #27ae60;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Term cards container */
+.term-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+/* Individual term card */
+.term-card {
+  flex: 0 0 70px; /* fixed width for all cards */
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.term-card:hover {
+  background: #3d8cec;
+  transform: translateY(-3px);
+}
+
+.term-card.active {
+  background: linear-gradient(90deg, #2758ae, #0c82cc);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* Results card */
+.results-card {
+  display: inline-block;       /* shrink to fit contents */
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin: 20px auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.results-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Features container */
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  gap: 12px;
+}
+
+/* Individual feature cards */
+.feature-card {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-icon {
+  font-size: 24px;
+  color: #140c91;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: #ffffff;
+}
+
+.apply-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.apply-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive rules for very small screens */
+@media (max-width: 360px) {
+  .term-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .term-card {
+    width: 100%;
+  }
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-card {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+.note {
+  background: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form label {
+  text-align: left;
+  font-weight: 600;
+  color: #444;
+}
+
+form input, form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.dob {
+  display: flex;
+  gap: 8px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+}
+/* Shared button base */
+.form-buttons button {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border: none;
+}
+
+/* Proceed button */
+.apply-btn {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  color: #fff;
+  margin-right: 10px;
+}
+
+/* Reset button */
+.reset-btn {
+   background: linear-gradient(90deg, #27ae60, #2ecc71);
+  color: #fff;
+  margin-left: 10px;
+}
+
+/* Hover effect */
+.apply-btn:hover,
+.reset-btn:hover {
+  opacity: 0.9;
+}
+
+/* Form buttons container */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+

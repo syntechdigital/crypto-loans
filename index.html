@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loan-box">
+    <!-- Header -->
+    <h2>Get Your Loan Approved Fast</h2>
+    <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+
+    <!-- Loan Amount -->
+    <label>Loan Amount: $<span id="amount">5000</span></label>
+    <input type="range" min="200" max="50000" value="5000" step="100" class="slider" id="loanSlider">
+
+    <!-- Loan Term -->
+    <label>Loan Term (months):</label>
+    <div class="term-cards">
+      <div class="term-card" data-months="6">6</div>
+      <div class="term-card active" data-months="12">12</div>
+      <div class="term-card" data-months="24">24</div>
+      <div class="term-card" data-months="36">36</div>
+      <div class="term-card" data-months="48">48</div>
+      <div class="term-card" data-months="60">60</div>
+    </div>
+<!-- Results -->
+<div class="results-card">
+  <p>Loan Amount: $<span id="amount">5000</span></p>
+  <p>Monthly Payment: $<span id="payment">426.89</span></p>
+  <p>Interest Rate: 4.5% APR</p>
+</div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-clock feature-icon"></i>
+        <strong>Fast Approval</strong><br>Within 24 hours
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-percent feature-icon"></i>
+        <strong>Low Rates</strong><br>From 8%
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-lock feature-icon"></i>
+        <strong>Secure</strong><br>Bank-level security
+      </div>
+    </div>
+
+    <!-- Apply Button -->
+<a href="apply.html" class="apply-btn">APPLY NOW</a>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const slider = document.getElementById("loanSlider");
+    const amountDisplay = document.getElementById("amount");
+    const paymentDisplay = document.getElementById("payment");
+    const termCards = document.querySelectorAll(".term-card");
+
+    let selectedMonths = 12; // default
+
+    function calculatePayment(amount, months, rate=0.045) {
+      const monthlyRate = rate / 12;
+      return (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+    }
+
+    function updateCalculator() {
+      const amount = parseInt(slider.value);
+      amountDisplay.textContent = amount;
+      const payment = calculatePayment(amount, selectedMonths).toFixed(2);
+      paymentDisplay.textContent = payment;
+    }
+
+    // Handle term card clicks
+    termCards.forEach(card => {
+      card.addEventListener("click", () => {
+        termCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        selectedMonths = parseInt(card.dataset.months);
+        updateCalculator();
+      });
+    });
+
+    slider.addEventListener("input", updateCalculator);
+
+    updateCalculator(); // initialize
+  </script>
+</body>
+</html>
